@@ -10,17 +10,15 @@ class App extends Component {
 		this.state = {
 			messages: [],
 		}
-
-		this.postRequest = this.postRequest.bind(this);
-		this.handleSend = this.handleSend.bind(this);
+		this.sendMessage = this.sendMessage.bind(this);
 		this.getMessages = this.getMessages.bind(this);
-
 	}
 
 	getMessages () {
 		axios.get('http://chattercube.thirdtape.com/messages')
 			.then(({data}) => { 
-				console.log(data);
+				const messages = data.messages;
+				this.setState({messages});
 			})
 			.catch(err => console.log(err));
 	}
@@ -29,18 +27,19 @@ class App extends Component {
 		this.getMessages();
 	}
 
-	postRequest () {
-
-	}
-
-	handleSend () {
-
+	sendMessage (message) {
+		axios.post('http://chattercube.thirdtape.com/messages', {username: 'notMax', message: message})
+		  .then(({data}) => {
+		    console.log(data);
+		  })
+		  .catch(err => console.log(err));
 	}
 
 	render () {
 		return (
 			<div>
-				test
+				<Send state={this.state} sendMessage={this.sendMessage} />
+				<Messages messages={this.state.messages} />
 			</div>
 		);
 	}

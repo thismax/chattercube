@@ -8,20 +8,19 @@ const Messages = props => (
       (<Message
         key={i}
         username={message.username}
-        text={message.text}
+        message={message.message}
       />),
     )}
   </div>
 );
 
-Messages.propTypes = {
-  Messages: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number,
-      message: PropTypes.string,
-      text: PropTypes.string,
-    }),
-  ).isRequired,
-};
+// Messages.propTypes = {
+//   Messages: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       id: PropTypes.number,
+//       message: PropTypes.string,
+//     }),
+//   ).isRequired,
+// };
 
 export default Messages;
