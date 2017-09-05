@@ -1,5 +1,6 @@
-/* START SOLUTION */
 import React from 'react';
+import Send from './Send';
+import Messages from './Messages'
 
 const App = () => (
  <div>
