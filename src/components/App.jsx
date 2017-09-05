@@ -12,6 +12,7 @@ class App extends Component {
 		}
 		this.sendMessage = this.sendMessage.bind(this);
 		this.getMessages = this.getMessages.bind(this);
+		this.handleKeyPress = this.handleKeyPress.bind(this);
 	}
 
 	getMessages () {
@@ -28,17 +29,25 @@ class App extends Component {
 	}
 
 	sendMessage (message) {
-		axios.post('http://chattercube.thirdtape.com/messages', {username: 'notMax', message: message})
+		axios.post('http://chattercube.thirdtape.com/messages', {username: 'notmax', message: message})
 		  .then(({data}) => {
-		    console.log(data);
+		  	this.getMessages();
 		  })
 		  .catch(err => console.log(err));
+	}
+
+	handleKeyPress(event) {
+	  if(event.key == 'Enter'){
+	    this.sendMessage(event.target.value);
+	    event.target.value = '';
+	    // setTimeout(this.getMessages, 500);
+	  }
 	}
 
 	render () {
 		return (
 			<div>
-				<Send state={this.state} sendMessage={this.sendMessage} />
+				<Send state={this.state} handleKeyPress={this.handleKeyPress} sendMessage={this.sendMessage} />
 				<Messages messages={this.state.messages} />
 			</div>
 		);
