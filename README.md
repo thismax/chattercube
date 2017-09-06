@@ -1,4 +1,3 @@
 # chattercube
 
-To run
-###
+## How to initialize
