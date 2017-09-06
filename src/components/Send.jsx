@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 
-var Send = ({state, sendMessage, handleKeyPress}) => {
+var Send = ({handleKeyPress}) => {
 	return (
 	  <div className="search-bar form-inline">
-	    <input className="form-control" type="text" onKeyPress={handleKeyPress} />
+	    <input className="form-control" type="text" placeholder="Say Somethin'" onKeyPress={handleKeyPress} />
 	  </div> 
 	);
 }

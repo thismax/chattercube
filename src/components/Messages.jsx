@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import Message from './Message';
 
 const Messages = props => (
@@ -13,14 +12,5 @@ const Messages = props => (
     )}
   </div>
 );
-
-// Messages.propTypes = {
-//   Messages: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.number,
-//       message: PropTypes.string,
-//     }),
-//   ).isRequired,
-// };
 
 export default Messages;
