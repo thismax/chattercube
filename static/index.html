@@ -6,6 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
   </head>
   <body>
+    <script>
+      // YOU DO NOT NEED TO EDIT THIS CODE
+      if (!/(&|\?)username=/.test(window.location.search)) {
+        var newSearch = window.location.search;
+        if (newSearch !== '' & newSearch !== '?') {
+          newSearch += '&';
+        }
+        newSearch += 'username=' + (prompt('What is your name?') || 'anonymous');
+        window.location.search = newSearch;
+      }
+    </script>
     <div id="app" />
     <script src="bundle.js"></script>
   </body>

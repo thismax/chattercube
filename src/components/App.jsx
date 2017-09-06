@@ -29,7 +29,7 @@ class App extends Component {
 	}
 
 	sendMessage (message) {
-		axios.post('http://chattercube.thirdtape.com/messages', {username: 'notmax', message: message})
+		axios.post('http://chattercube.thirdtape.com/messages', {username: window.location.search.substr(10).split("%20").join(' '), message: message})
 		  .then(({data}) => {
 		  	this.getMessages();
 		  })
