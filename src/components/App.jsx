@@ -40,10 +40,10 @@ class App extends Component {
 	}
 
 	handleKeyPress (event) {
-	  if(event.key == 'Enter'){
-	    this.sendMessage(event.target.value);
-	    event.target.value = '';
-	  }
+		if(event.key == 'Enter'){
+			this.sendMessage(event.target.value);
+			event.target.value = '';
+		}
 	}
 
 	render () {
